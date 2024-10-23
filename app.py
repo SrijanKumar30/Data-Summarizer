@@ -14,8 +14,8 @@ def Summarize():
         headers = {"Authorization": "Bearer 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"}
 
        
-        maxL = int(req.form["maxL"])*10
-        minL = maxL//4
+        maxL = int(req.form["maxL"])
+        minL = maxL//2
         data = req.form["data"]
         def query(payload):
             response = requests.post(API_URL, headers=headers, json=payload)
@@ -25,7 +25,7 @@ def Summarize():
             "inputs": data,
             "parameters" : {"min_length" : minL, "max_length" : maxL},
         })[0]
-        return render_template("index.html",result=output["summary_text"],maxL=maxL)
+        return render_template("index.html",result=output["summary_text"])
     else:
         return render_template("index.html")
 

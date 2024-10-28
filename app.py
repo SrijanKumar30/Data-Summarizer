@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/",methods=["GET","POST"])
 def Index():
     return render_template("index.html")
-@app.route("/Summarize ",methods=["GET","POST"])
+@app.route("/Summarize",methods=["GET","POST"])
 
 def Summarize():
     if req.method == "POST":
